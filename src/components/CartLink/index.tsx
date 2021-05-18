@@ -1,4 +1,5 @@
 import './styles.css';
+import { Button } from '@material-ui/core';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { useAppSelector } from 'store';
 import { getCartItems } from 'store/selectors';
@@ -9,9 +10,9 @@ function CartLink() {
   );
 
   return (
-    <span className="cart-link">
-      <ShoppingCartIcon /> Cart ({cartCount})
-    </span>
+    <Button className="cart-link" startIcon={<ShoppingCartIcon />}>
+      Cart ({cartCount})
+    </Button>
   );
 }
 

@@ -8,7 +8,11 @@ export type CartState = {
 };
 
 const initialState: CartState = {
-  items: {},
+  items: {
+    '5F6D806277FEA_11189': 3,
+    '5F6D80A544056_9908': 2,
+    '202695M21302': 1,
+  },
   discount: 0,
   donation: 0,
 };
@@ -36,6 +40,17 @@ const cartSlice = createSlice({
       );
     },
 
+    changeAmount(
+      state,
+      action: PayloadAction<{ id: Product['id']; amount: number }>
+    ) {
+      state.items[action.payload.id] = action.payload.amount || 0;
+    },
+
+    remove(state, action: PayloadAction<Product['id']>) {
+      delete state.items[action.payload];
+    },
+
     changeDonation(state, action: PayloadAction<number>) {
       state.donation = action.payload;
     },
@@ -46,7 +61,13 @@ const cartSlice = createSlice({
   },
 });
 
-export const { increment, decrement, changeDonation, applyDiscount } =
-  cartSlice.actions;
+export const {
+  increment,
+  decrement,
+  changeAmount,
+  remove,
+  changeDonation,
+  applyDiscount,
+} = cartSlice.actions;
 
 export default cartSlice.reducer;

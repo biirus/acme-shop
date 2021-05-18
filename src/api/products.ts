@@ -21,10 +21,18 @@ const jacket = {
     'https://cdn11.bigcommerce.com/s-qfzerv205w/images/stencil/960w/products/116/512/Men-Jacket-Front-Black__15466.1603283963.png',
 };
 
+const mask = {
+  id: '202695M21302',
+  name: 'Black Mask',
+  price: 19,
+  image:
+    'https://cdn11.bigcommerce.com/s-qfzerv205w/images/stencil/960w/products/118/509/Surgical-Mask-Front-Black__75855.1603756822.png',
+};
+
 export const getProducts = async () => {
   return new Promise<Product[]>((resolve) => {
     setTimeout(() => {
-      resolve([hat, jacket]);
+      resolve([hat, jacket, mask]);
     }, 300);
   });
 };

@@ -1,9 +1,10 @@
+import './styles.css';
 import { useRouteMatch } from 'react-router';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 
-const steps = ['cart', 'customer', 'shipping', 'billing', 'payment'];
+const steps = ['overview', 'customer', 'shipping', 'billing', 'payment'];
 
 function Progress() {
   const match = useRouteMatch();
@@ -13,7 +14,7 @@ function Progress() {
     <Stepper activeStep={activeStep} alternativeLabel>
       {steps.map((label) => (
         <Step key={label}>
-          <StepLabel>{label}</StepLabel>
+          <StepLabel className="label">{label}</StepLabel>
         </Step>
       ))}
     </Stepper>
