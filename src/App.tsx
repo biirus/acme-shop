@@ -1,29 +1,53 @@
 import './App.css';
-import { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from 'store';
-import { getProductsMap, getProductsUI, getTotal } from 'store/selectors';
-import { fetchProducs } from 'store/slices/products';
-import ProductItem from 'components/ProductItem';
+import { Switch, Route, Link } from 'react-router-dom';
+import { Typography, TextField, InputAdornment } from '@material-ui/core';
+import SearchIcon from '@material-ui/icons/Search';
+import ProductList from 'pages/ProductList';
+import CartLink from 'components/CartLink';
 
 function App() {
-  const dispatch = useAppDispatch();
-  const products = useAppSelector(getProductsMap);
-  const ui = useAppSelector(getProductsUI);
-  const total = useAppSelector(getTotal);
-
-  useEffect(() => {
-    dispatch(fetchProducs());
-  }, [dispatch]);
-
-  console.log(total);
-
   return (
-    <div className="App">
-      {ui.status === 'pending' ? (
-        <h1>Loading...</h1>
-      ) : (
-        Object.keys(products).map((id) => <ProductItem key={id} itemID={id} />)
-      )}
+    <div className="app">
+      <header className="app-header">
+        <Typography variant="h5">
+          <Link to="/" className="app-header-link">
+            Acme Production
+          </Link>
+        </Typography>
+
+        <TextField
+          size="small"
+          placeholder="Search..."
+          variant="outlined"
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <SearchIcon />
+              </InputAdornment>
+            ),
+          }}
+        />
+
+        <div>
+          <Typography>
+            <Link to="/cart" className="app-header-link">
+              <CartLink />
+            </Link>
+          </Typography>
+        </div>
+      </header>
+
+      <Switch>
+        <Route exact path="/">
+          <ProductList />
+        </Route>
+      </Switch>
+
+      <footer>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia ea quo
+        aliquid, excepturi rem beatae? Exercitationem illo saepe, dolor ad esse
+        amet autem sed placeat quae non dolorum necessitatibus incidunt!
+      </footer>
     </div>
   );
 }
