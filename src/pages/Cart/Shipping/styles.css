@@ -1,17 +1,1 @@
-.cart-section-gap {
-  gap: 0 32px;
-}
 
-.cart-section-top {
-  align-items: start;
-}
-
-.shipping-form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-}
-
-.shipping-form .row {
-  grid-column: 1/-1;
-}

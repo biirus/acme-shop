@@ -120,7 +120,7 @@ function Overview() {
         </Table>
       </section>
 
-      <section className="cart-section-totals">
+      <section className="cart-section-cols">
         <Totals className="cart-totals" />
       </section>
 

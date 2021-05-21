@@ -25,11 +25,29 @@
   padding: 40px 0;
 }
 
-.cart-section-totals {
+.cart-section-cols {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
 .cart-totals {
   grid-column: 2/3;
+}
+
+.cart-section-gap {
+  gap: 0 32px;
+}
+
+.cart-section-top {
+  align-items: start;
+}
+
+.cart-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.cart-form .row {
+  grid-column: 1/-1;
 }

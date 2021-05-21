@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from 'store';
 import { changeInfo, InfoState } from 'store/slices/info';
 import { getInfo } from 'store/selectors';
 import Totals from 'pages/Cart/Totals';
+import { Link } from 'react-router-dom';
 
 function Shipping() {
   const dispatch = useAppDispatch();
@@ -25,12 +26,12 @@ function Shipping() {
 
   return (
     <div>
-      <section className="cart-section-totals cart-section-gap cart-section-top">
+      <section className="cart-section-cols cart-section-gap cart-section-top">
         <header className="cart-section-header">
           <Typography variant="h4">Shipping</Typography>
         </header>
 
-        <div className="shipping-form">
+        <div className="cart-form">
           <TextField
             fullWidth
             className="row"
@@ -86,7 +87,12 @@ function Shipping() {
           />
 
           <footer className="cart-section-actions row">
-            <Button variant="contained" color="primary">
+            <Button
+              variant="contained"
+              color="primary"
+              component={Link}
+              to="/cart/payment"
+            >
               Continue
             </Button>
           </footer>

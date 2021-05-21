@@ -7,7 +7,7 @@ import {
   TextField,
   Slider,
 } from '@material-ui/core';
-import { HTMLAttributes } from 'react';
+import { HTMLAttributes, useCallback } from 'react';
 import { useAppDispatch, useAppSelector } from 'store';
 import {
   getDiscount,
@@ -17,8 +17,8 @@ import {
   getProductsTotal,
   getTotal,
 } from 'store/selectors';
-
 import { applyDiscount, changeDonation } from 'store/slices/cart';
+import { clamp } from 'utils/clamp';
 
 function Totals(props: HTMLAttributes<HTMLTableElement>) {
   const dispatch = useAppDispatch();
@@ -28,6 +28,20 @@ function Totals(props: HTMLAttributes<HTMLTableElement>) {
   const donationValue = useAppSelector(getDonationValue);
   const discount = useAppSelector(getDiscount);
   const discountValue = useAppSelector(getDiscountValue);
+
+  const discountHandler = useCallback(
+    (e) => {
+      let value = parseFloat(e.target.value);
+
+      if (isNaN(value)) {
+        value = 0;
+      }
+
+      value = clamp(0, 100, value);
+      dispatch(applyDiscount(value));
+    },
+    [dispatch]
+  );
 
   return (
     <Table className={props.className}>
@@ -63,10 +77,8 @@ function Totals(props: HTMLAttributes<HTMLTableElement>) {
               size="small"
               variant="outlined"
               value={discount}
-              inputProps={{ min: 0 }}
-              onChange={(e) =>
-                dispatch(applyDiscount(parseFloat(e.target.value)))
-              }
+              inputProps={{ min: 0, max: 100 }}
+              onChange={discountHandler}
             />
           </TableCell>
           <TableCell align="right">${discountValue}</TableCell>
