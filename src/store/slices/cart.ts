@@ -8,11 +8,7 @@ export type CartState = {
 };
 
 const initialState: CartState = {
-  items: {
-    '5F6D806277FEA_11189': 3,
-    '5F6D80A544056_9908': 2,
-    '202695M21302': 1,
-  },
+  items: {},
   discount: 0,
   donation: 0,
 };

@@ -59,10 +59,10 @@ function App() {
         </Route>
       </Switch>
 
-      <footer>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia ea quo
-        aliquid, excepturi rem beatae? Exercitationem illo saepe, dolor ad esse
-        amet autem sed placeat quae non dolorum necessitatibus incidunt!
+      <footer className="app-footer">
+        <Typography>
+          Copyright &copy; Acme Production Group. All rights reserved.
+        </Typography>
       </footer>
     </div>
   );
