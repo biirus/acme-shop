@@ -12,3 +12,22 @@
   align-items: center;
   justify-content: center;
 }
+
+.cart-section-header {
+  margin-bottom: 24px;
+}
+
+.cart-section-totals {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.cart-totals {
+  grid-column: 2/3;
+}
+
+.cart-section-actions {
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 40px 0;
+}
