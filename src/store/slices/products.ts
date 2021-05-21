@@ -7,9 +7,9 @@ export const fetchProducs = createAsyncThunk('products/fetch', async () => {
 });
 
 export type ProductsState = {
-  productsMap: Record<Product['id'], Product>;
-  ui: {
-    status: 'idle' | 'pending';
+  readonly productsMap: Record<Product['id'], Product>;
+  readonly ui: {
+    readonly status: 'idle' | 'pending';
   };
 };
 

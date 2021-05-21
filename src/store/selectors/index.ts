@@ -1,6 +1,7 @@
 import { createSelector } from 'reselect';
 import { RootState } from 'store';
 
+export const getInfo = (state: RootState) => state.info;
 export const getProductsUI = (state: RootState) => state.products.ui;
 export const getCartItems = (state: RootState) => state.cart.items;
 export const getDonation = (state: RootState) => state.cart.donation;

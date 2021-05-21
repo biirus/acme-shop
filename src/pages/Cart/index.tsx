@@ -1,7 +1,8 @@
 import './styles.css';
 import { Switch, Route, useRouteMatch, Redirect } from 'react-router-dom';
 import Progress from 'pages/Cart/Progress';
-import Overview from './Overview';
+import Overview from 'pages/Cart/Overview';
+import Shipping from 'pages/Cart/Shipping';
 
 function Cart() {
   const match = useRouteMatch();
@@ -12,17 +13,9 @@ function Cart() {
           <Progress />
           <Overview />
         </Route>
-        <Route path={`${match.url}/customer`}>
-          <Progress />
-          <h1>Customer</h1>
-        </Route>
         <Route path={`${match.url}/shipping`}>
           <Progress />
-          <h1>Shipping</h1>
-        </Route>
-        <Route path={`${match.url}/billing`}>
-          <Progress />
-          <h1>Billing</h1>
+          <Shipping />
         </Route>
         <Route path={`${match.url}/payment`}>
           <Progress />

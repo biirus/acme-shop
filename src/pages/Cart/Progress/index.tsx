@@ -4,7 +4,7 @@ import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 
-const steps = ['overview', 'customer', 'shipping', 'billing', 'payment'];
+const steps = ['overview', 'shipping', 'payment'];
 
 function Progress() {
   const match = useRouteMatch();

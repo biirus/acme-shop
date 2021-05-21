@@ -2,9 +2,9 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Product } from 'api/products';
 
 export type CartState = {
-  items: Record<Product['id'], number>;
-  discount: number;
-  donation: number;
+  readonly items: Record<Product['id'], number>;
+  readonly discount: number;
+  readonly donation: number;
 };
 
 const initialState: CartState = {

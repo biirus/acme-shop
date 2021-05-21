@@ -16,7 +16,7 @@ import { Delete } from '@material-ui/icons';
 import { useAppDispatch, useAppSelector } from 'store';
 import { getCartItems, getProductsMap, getProductsUI } from 'store/selectors';
 import { changeAmount, remove } from 'store/slices/cart';
-import Totals from './Totals';
+import Totals from 'pages/Cart/Totals';
 
 function Overview() {
   const dispatch = useAppDispatch();
@@ -129,7 +129,7 @@ function Overview() {
           variant="contained"
           color="primary"
           component={Link}
-          to="/cart/customer"
+          to="/cart/shipping"
         >
           Check out
         </Button>
